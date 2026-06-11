@@ -6,9 +6,6 @@ import styles from "./MyWork.module.css";
 import Image from "next/image";
 import github from "../../assets/github.png";
 import github_w from "../../assets/github_w.png";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Carousel from "components/Carousel/Carousel";
 import { useSelector } from "react-redux";
 import { setBackBtn } from "@/redux/tabSlice";
 import store from "@/redux/store";
@@ -25,7 +22,6 @@ const MyWork = ({ id }: Props) => {
     title: "",
     date: "",
     gitURL: "",
-    gallery: [],
     techstack: [],
     overview: "",
   });
@@ -115,14 +111,6 @@ const MyWork = ({ id }: Props) => {
             <div className={styles.header}>
               <h4>{currDisplay.title}</h4>
             </div>
-            {currDisplay.gallery.length === 0 ? (
-              <></>
-            ) : (
-              <div className={styles.body}>
-                <h4>Project Gallery</h4>
-                <Carousel images={currDisplay.gallery} />
-              </div>
-            )}
             <div className={styles.body}>
               <h4>Overview:</h4>
               {currDisplay.overview}

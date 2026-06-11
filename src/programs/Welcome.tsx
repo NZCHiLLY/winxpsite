@@ -2,12 +2,11 @@ import WelcomeIcon from "components/WelcomeIcon/WelcomeIcon";
 import styles from "./Welcome.module.css";
 import linkedin from "../../assets/linkedin.png";
 import outlook from "../../assets/outlook_large.png";
-import gallery from "../../assets/folder_image.png";
-import pdf from "../../assets/pdf.png";
 import github from "../../assets/github.png";
 import cmd from "../../assets/cmd.png";
 import users from "../../assets/users.png";
 import butterfly from "../../assets/butterfly.png";
+import doc from "../../assets/doc.png";
 import { AppDirectory } from "@/appData";
 import store from "@/redux/store";
 import { addTab, setBackBtn } from "@/redux/tabSlice";
@@ -16,45 +15,22 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/types";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import userprofile from "../../assets/userprofile.jpg";
-import userprofile2 from "../../assets/userprofile2.jpg";
-import ebc1 from "../../assets/ebc1.webp";
-import ebc2 from "../../assets/ebc2.webp";
 
-const INTRO = `Hi, I'm Wei Pin, an aspiring software engineer and entrepreneur based in Singapore. I am 
-  currently a Computer Engineering Fresh Graduate at the National University of Singapore and I am
-  passionate about building innovative software solutions that solves problems.`;
+const INTRO = `Hi, I'm Jayson, a software developer based in New Zealand. I build web applications,
+tools, and platforms with a focus on clean architecture and great user experiences.`;
 
-const WHYSITE = `I always love challenging myself to creating something different and interesting.
-The main reason why I chose to create a website that resembles a Windows XP OS is because my 
-software development journey first started back in the early 2010 when I was creating simple utility
-apps such as calculators, web browser, message encrypters, phishing app and simple chatbot using 
-Visual Basic on Visual Studio 2010 out of curiousity and fun. Now that I have more experience in
-software development, I decided to "recreate" the environment I used to work in back then and make
-it feel as though you are accessing my computer directly.`;
+const WHYSITE = `This website is a tribute to the Windows XP era — the operating system where I first
+started tinkering with computers. Every detail from the title bar gradients to the Start menu is
+designed to feel like you're sitting at an XP desktop. It's a fun way to present a portfolio that
+stands out from the usual template-driven sites.`;
 
-const INTERESTS = `Other than my interest in developing websites and apps for fun, I love solo
-travelling and exploring new places. It is during these times I get to reflect on my own life and
-step out of my comfort zone to talk to people within the local community and my hostel where I meet
-people from all over the world. Other than that, I am also a firm believer that the best way to 
-learn and grow as a person is to immerse yourself in a different culture and environment. This
-forces you become adaptable to new situations and learn to be more independent and self-reliant.`;
+const INTERESTS = `Outside of software, I enjoy exploring the outdoors — hiking, trail running, and
+making the most of New Zealand's landscapes. I'm also into retro computing, classic games, and
+building things that combine nostalgia with modern web technology.`;
 
-const INTERESTS2 = `Other than traveling, I love trekking and cycling, and as a challenge to myself, I decided 
-to embark on a journey to the Everest Base Camp. After a 130KM, 2504M grueling vertical ascend from 
-Tenzing-Hillary Airport, widely regarded as some of the world’s most dangerous airports, I made it 
-with a friend of mine and our guide. The entire experience was spectacular as I have also met and struck up 
-conversations with trekkers from all walks of life and background, and we all had a common goal 
-of reaching the top of the base camp.`;
-
-const INTERESTS3 = `Also, I love (really in love with) drone photography and filming! This is my one true passion, as
-the angles I get are much more unique compared to any DSLR/phone camera. The perspectives that
-aerial shots offer are so mesmerizing that it makes you feel like a bird (and this fulfills my 
-desire to be able to fly lol) (You can view some of collection on this website). Lastly, I love 
-to read non-fiction books, especially those that are related to entrepreneurship, biographies, 
-and self-help, as those books usually contain a lot of valuable insights and satiate my curiosity 
-about the lives of others.
-`;
+const INTERESTS2 = `When I'm not coding or outdoors, you'll find me reading about system design,
+experimenting with new frameworks, or tinkering with hardware projects. I believe the best software
+comes from understanding both the stack and the people using it.`;
 
 interface props {
   id: number;
@@ -86,11 +62,10 @@ const Welcome = ({ id }: props) => {
       {!aboutmeView ? (
         <div>
           <h3 className={styles.welcome_text}>
-            Welcome To Wei Pin&apos;s Personal Website
+            Welcome To Jayson&apos;s Personal Website
           </h3>
           <p className={styles.subtitle}>
-            Learn more about me by clicking any of the icons below to get
-            started!
+            Learn more by clicking any of the icons below to get started!
           </p>
           <div className={styles.content}>
             <div className={styles.leftpanel}>
@@ -102,11 +77,11 @@ const Welcome = ({ id }: props) => {
               />
               <WelcomeIcon
                 img={github}
-                text={"My GitHub Profile"}
-                tooltip="My Brain Dump"
+                text={"My GitHub"}
+                tooltip="Open source projects"
                 onClick={() => {
                   window.open(
-                    "https://github.com/firwer",
+                    "https://github.com/NZCHiLLY",
                     "_blank",
                     "noreferrer"
                   );
@@ -114,43 +89,35 @@ const Welcome = ({ id }: props) => {
               />
               <WelcomeIcon
                 img={linkedin}
-                text={"My Linkedin"}
-                tooltip="Connect with me!"
+                text={"My LinkedIn"}
+                tooltip="Connect with me"
                 onClick={() => {
                   window.open(
-                    "https://www.linkedin.com/in/poh-wei-pin-7b9061183/",
+                    "https://www.linkedin.com/",
                     "_blank",
                     "noreferrer"
                   );
-                }}
-              />
-              <WelcomeIcon
-                img={pdf}
-                text={"My Resume"}
-                tooltip="My Curriculum Vitae"
-                onClick={() => {
-                  window.open("./Resume.pdf");
                 }}
               />
             </div>
             <div className={styles.rightpanel}>
               <WelcomeIcon
                 img={cmd}
-                text={"My Work"}
-                tooltip="Interesting projects I have done"
+                text={"Projects"}
+                tooltip="See what I've built"
                 onClick={() => handleRunApp(2)}
               />
               <WelcomeIcon
                 img={outlook}
-                text={"Send Me An Email"}
-                tooltip="Reach out to me!"
+                text={"Contact Me"}
+                tooltip="Send me a message"
                 onClick={() => handleRunApp(1)}
               />
               <WelcomeIcon
-                img={gallery}
-                text={"My Photography Collection"}
-                tooltip="Click to view!"
-                onClick={() => handleRunApp(4)}
+                img={doc}
+                text={"Skills"}
+                tooltip="Technologies I use"
+                onClick={() => handleRunApp(3)}
               />
             </div>
           </div>
@@ -158,33 +125,11 @@ const Welcome = ({ id }: props) => {
       ) : (
         <div>
           <h3 className={styles.welcome_text}>About Me</h3>
-          <p className={styles.subtitle}></p>
           <div className={styles.content}>
             <div className={styles.pic_col}>
               <Image
-                alt="profile_pic"
-                src={userprofile.src}
-                width={200}
-                height={200}
-                className={styles.profile_pic}
-              />
-              <Image
-                alt="profile_pic"
-                src={userprofile2.src}
-                width={200}
-                height={200}
-                className={styles.profile_pic}
-              />
-              <Image
-                alt="profile_pic"
-                src={ebc1.src}
-                width={200}
-                height={200}
-                className={styles.profile_pic}
-              />
-              <Image
-                alt="profile_pic"
-                src={ebc2.src}
+                alt="profile placeholder"
+                src={users.src}
                 width={200}
                 height={200}
                 className={styles.profile_pic}
@@ -193,17 +138,15 @@ const Welcome = ({ id }: props) => {
             <div className={styles.text_col}>
               <p className={styles.subtitle}>{INTRO}</p>
               <h3 className={styles.subtitle_header}>
-                Why a personal website like this?
+                Why a site like this?
               </h3>
               <p className={styles.subtitle}>{WHYSITE}</p>
               <h3 className={styles.subtitle_header}>
-                What are your interests?
+                What else?
               </h3>
               <p className={styles.subtitle}>{INTERESTS}</p>
-              <br></br>
+              <br />
               <p className={styles.subtitle}>{INTERESTS2}</p>
-              <br></br>
-              <p className={styles.subtitle}>{INTERESTS3}</p>
             </div>
           </div>
         </div>

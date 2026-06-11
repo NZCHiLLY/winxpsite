@@ -1,5 +1,5 @@
 import styles from "./StartMenu.module.css";
-import userprofile from "../../assets/userprofile.jpg";
+import users from "../../assets/users.png";
 import folder from "../../assets/folder_plain.png";
 import StartMenuItem from "components/StartMenuItem/StartMenuItem";
 import recentdoc from "../../assets/recentdoc.png";
@@ -16,8 +16,7 @@ import github from "../../assets/github.png";
 import linkedin from "../../assets/linkedin.png";
 import cmd from "../../assets/cmd.png";
 import paint from "../../assets/paint.png";
-import msn from "../../assets/msn.png";
-import pdf from "../../assets/pdf.png";
+import solitaire from "../../assets/solitaire.png";
 import arrow from "../../assets/all-programs.ico";
 import logoff from "../../assets/logoff.png";
 import shutdown from "../../assets/shutdown.png";
@@ -35,21 +34,17 @@ interface StartMenuProps {
 
 const StartMenu = ({ menuControl }: StartMenuProps) => {
   const handleOpenGitHub = () => {
-    window.open("https://github.com/firwer", "_blank", "noreferrer");
-  };
-
-  const handleOpenResume = () => {
-    window.open("./Resume.pdf", "_blank");
+    window.open("https://github.com/NZCHiLLY", "_blank", "noreferrer");
   };
 
   const handleOpenLinkedin = () => {
     window.open(
-      "https://www.linkedin.com/in/poh-wei-pin-7b9061183/",
+      "https://www.linkedin.com/",
       "_blank",
       "noreferrer"
     );
   };
-  //const currTabID = useSelector((state: RootState) => state.tab.id);
+
   const handleRunApp = (e: number) => {
     menuControl(false);
     const newTab = { ...AppDirectory.get(e), id: uuidv4() };
@@ -61,7 +56,7 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
       <div className={styles.menutopbar}>
         <Image
           alt="userprofile"
-          src={userprofile.src}
+          src={users.src}
           width={55}
           height={55}
           style={{
@@ -81,7 +76,7 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
             textShadow: "1px 1px #000000",
           }}
         >
-          Wei Pin&apos;s PC
+          Jayson&apos;s PC
         </p>
       </div>
       <hr className={styles.orangehr} />
@@ -97,33 +92,46 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
             <StartMenuItem
               onClick={() => handleRunApp(1)}
               title="E-mail"
-              subtitle="Drop me a message!"
+              subtitle="Outlook Express"
               icon={outlook}
               type={1}
             />
             <hr className={styles.greyhr} />
             <StartMenuItem
-              onClick={handleOpenResume}
-              title="My Resume"
-              icon={pdf}
+              onClick={() => handleRunApp(0)}
+              title="About Me"
+              icon={help}
               type={2}
             />
             <StartMenuItem
+              onClick={() => handleRunApp(2)}
+              title="Projects"
+              icon={cmd}
+              type={2}
+            />
+            <StartMenuItem
+              onClick={() => handleRunApp(3)}
+              title="Skills"
+              icon={clipboard}
+              type={2}
+            />
+            <StartMenuItem
+              onClick={() => handleRunApp(9)}
+              title="Pinball"
+              icon={solitaire}
+              type={2}
+            />
+            <hr className={styles.greyhr} />
+            <StartMenuItem
               onClick={handleOpenGitHub}
-              title="My Github"
+              title="My GitHub"
               icon={github}
               type={2}
             />
             <StartMenuItem
               onClick={handleOpenLinkedin}
-              title="My Linkedin"
+              title="My LinkedIn"
               icon={linkedin}
-              type={2}
-            />
-            <StartMenuItem
-              title="My Work"
-              onClick={() => handleRunApp(2)}
-              icon={cmd}
               type={2}
             />
             <StartMenuItem title="Paint" icon={paint} type={2} />

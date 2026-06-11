@@ -28,13 +28,13 @@ export enum App {
   MYWORK,
   OUTLOOK,
   MYDOCUMENT,
-  MYGALLERY,
-  MYBLOG,
   ERROR,
   INFO,
   HELP,
   WARNING,
   WELCOME,
+  SKILLS,
+  PINBALL,
 }
 
 export enum WorkType {
@@ -56,16 +56,6 @@ export type WorkContent = {
   title: string;
   date: string;
   gitURL: string;
-  gallery: StaticImageData[];
   techstack: string[];
   overview: string;
-};
-
-export type GalleryImage = {
-  id: number;
-  title: string;
-  desc: string;
-  location: string;
-  date: string;
-  img: StaticImageData;
 };
