@@ -8,9 +8,8 @@ import paste from "../../assets/toolbar/paste.png";
 import undo from "../../assets/toolbar/undo.png";
 import check from "../../assets/toolbar/check.png";
 import spelling from "../../assets/toolbar/spelling.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
-import React from "react";
 import { AppDirectory } from "@/appData";
 import { addTab } from "@/redux/tabSlice";
 import store from "@/redux/store";
@@ -22,62 +21,56 @@ const Outlook = () => {
   const [from, setFrom] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
-  const API_KEY = process.env.NEXT_PUBLIC_MAILGUN_API;
-  const FROM_EMAIL = "feedback@pohwp.dev";
-  const TO_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
-  const axios = require("axios");
-  const captchaRef = React.useRef(null);
-  const emailRef = React.useRef<HTMLInputElement>(null);
-  const subjectRef = React.useRef<HTMLInputElement>(null);
-  const messageRef = React.useRef<HTMLTextAreaElement>(null);
+  const [sending, setSending] = useState(false);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const subjectRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
   const sendEmail = async () => {
-    if (!from || !subject || !message) {
+    if (!from || !subject || !message || sending) {
       return;
     }
-    
+
+    setSending(true);
+
     try {
-      await axios({
-        method: "post",
-        url: `https://api.mailgun.net/v3/pohwp.dev/messages`,
-        auth: {
-          username: "api",
-          password: API_KEY,
-        },
-        params: {
-          from: FROM_EMAIL,
-          to: TO_EMAIL,
-          subject: "New Message From A Visitor: " + subject,
-          text: "From: " + from + "\nMessage: " + message,
-        },
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ from, subject, message }),
       });
-      
-      // Success handling
+
+      if (!res.ok) {
+        const { error } = await res.json();
+        throw new Error(error || "Failed to send email");
+      }
+
       const newTab = {
         ...AppDirectory.get(7),
         id: uuidv4(),
         zIndex: currTabID,
-        title: "Outlook - Message Sent!",
-        message: "Your message has been sent! I will get back to you soon!",
+        title: "Message Sent",
+        message: "Your message has been sent. I will get back to you as soon as possible.",
       };
       store.dispatch(addTab(newTab));
-      
-      // Clear form
+
       setFrom("");
       setSubject("");
       setMessage("");
       if (emailRef.current) emailRef.current.value = "";
       if (subjectRef.current) subjectRef.current.value = "";
       if (messageRef.current) messageRef.current.value = "";
-    } catch (error) {
-      // Show error to user
+    } catch {
       const errorTab = {
         ...AppDirectory.get(5),
         id: uuidv4(),
         zIndex: currTabID,
-        title: "Error - Email Failed",
-        message: "Failed to send email. Please try again later.",
+        title: "Error — Email Failed",
+        message: "Failed to send your message. Please try again later, or email me directly at hello@chilman.co.nz.",
       };
       store.dispatch(addTab(errorTab));
+    } finally {
+      setSending(false);
     }
   };
 
@@ -86,14 +79,14 @@ const Outlook = () => {
       <div className={styles.icons_toolbar}>
         <div
           className={
-            from !== "" && subject !== "" && message !== ""
+            from !== "" && subject !== "" && message !== "" && !sending
               ? styles.icon
               : styles.icon_disabled
           }
         >
           <Image
             style={
-              from !== "" && subject !== "" && message !== ""
+              from !== "" && subject !== "" && message !== "" && !sending
                 ? { margin: "0 4px" }
                 : {
                     margin: "0 4px",
@@ -106,7 +99,7 @@ const Outlook = () => {
             src={send.src}
             onClick={sendEmail}
           />
-          <p>Send</p>
+          <p>{sending ? "..." : "Send"}</p>
         </div>
         <div className={styles.vertical_line} />
         <div className={styles.icon}>
@@ -205,7 +198,7 @@ const Outlook = () => {
               disabled
               id="text21"
               type="text"
-              value="Poh Wei Pin (pohwp99@gmail.com)"
+              value="Jayson Chilman (hello@chilman.co.nz)"
             />
             <input
               className={styles.textfield}
@@ -219,7 +212,7 @@ const Outlook = () => {
             <input
               className={styles.textfield}
               ref={subjectRef}
-              placeholder="What is this message/email regarding?"
+              placeholder="What is this message regarding?"
               onChange={(e) => {
                 setSubject(e.target.value);
               }}
@@ -237,7 +230,7 @@ const Outlook = () => {
             setMessage(e.target.value);
           }}
           id="text24"
-          placeholder="Type your message here...(Share with me something interesting or a feedback?)"
+          placeholder="Type your message here..."
         ></textarea>
       </div>
     </div>
