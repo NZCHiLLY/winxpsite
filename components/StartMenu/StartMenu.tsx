@@ -12,11 +12,10 @@ import search from "../../assets/search.png";
 import run from "../../assets/run.png";
 import outlook from "../../assets/outlook.png";
 import ie from "../../assets/ie.png";
-import github from "../../assets/github.png";
 import linkedin from "../../assets/linkedin.png";
 import cmd from "../../assets/cmd.png";
 import paint from "../../assets/paint.png";
-import solitaire from "../../assets/solitaire.png";
+import pinball from "../../assets/pinball.png";
 import arrow from "../../assets/all-programs.ico";
 import logoff from "../../assets/logoff.png";
 import shutdown from "../../assets/shutdown.png";
@@ -49,13 +48,9 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
     store.dispatch(addTab(dialogTab));
   };
 
-  const handleOpenGitHub = () => {
-    window.open("https://github.com/NZCHiLLY", "_blank", "noreferrer");
-  };
-
   const handleOpenLinkedin = () => {
     window.open(
-      "https://www.linkedin.com/",
+      "https://www.linkedin.com/in/jayson-chilman/",
       "_blank",
       "noreferrer"
     );
@@ -100,7 +95,7 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
         <div className={styles.leftmenu}>
           <div>
             <StartMenuItem
-              onClick={handleOpenGitHub}
+              onClick={handleOpenLinkedin}
               title="Internet"
               subtitle="Internet Explorer"
               icon={ie}
@@ -135,16 +130,10 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
             <StartMenuItem
               onClick={() => handleRunApp(9)}
               title="Pinball"
-              icon={solitaire}
+              icon={pinball}
               type={2}
             />
             <hr className={styles.greyhr} />
-            <StartMenuItem
-              onClick={handleOpenGitHub}
-              title="My GitHub"
-              icon={github}
-              type={2}
-            />
             <StartMenuItem
               onClick={handleOpenLinkedin}
               title="My LinkedIn"

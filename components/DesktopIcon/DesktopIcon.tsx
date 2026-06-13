@@ -4,6 +4,8 @@ import Draggable from "react-draggable";
 import styles from "./DesktopIcon.module.css";
 import Image from "next/image";
 
+const GRID = 80;
+
 const DesktopIcon = (props: {
   title: string;
   img: StaticImageData;
@@ -11,6 +13,7 @@ const DesktopIcon = (props: {
   doubleClick: () => void;
 }) => {
   const [selected, setSelected] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
   const ref = useRef<HTMLDivElement>(null);
   const HighlightIcon = () => {
     setSelected(!selected);
@@ -27,8 +30,20 @@ const DesktopIcon = (props: {
     };
   }, [handleClickOutside]);
 
+  const handleStop = (_e: any, data: { x: number; y: number }) => {
+    setPos({
+      x: Math.round(data.x / GRID) * GRID,
+      y: Math.round(data.y / GRID) * GRID,
+    });
+  };
+
   return (
-    <Draggable nodeRef={ref} bounds="parent">
+    <Draggable
+      nodeRef={ref}
+      bounds="parent"
+      position={pos}
+      onStop={handleStop}
+    >
       <div
         style={{ top: props.appID * 90 - 40 }}
         onDoubleClick={props.doubleClick}

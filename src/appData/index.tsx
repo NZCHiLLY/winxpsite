@@ -14,6 +14,7 @@ import mycomputer from "../../assets/mycomputer.png";
 import outlook from "../../assets/outlook.png";
 import folder from "../../assets/folder.png";
 import solitaire from "../../assets/solitaire.png";
+import pinball from "../../assets/pinball.png";
 import paint from "../../assets/paint.png";
 
 export const TechIcon = {
@@ -70,6 +71,7 @@ export const AppDirectory: Map<number, Tab> = new Map([
       program: App.WELCOME,
       prompt: false,
       backBtnActive: false,
+      cascade: 0,
     },
   ],
   [
@@ -84,6 +86,7 @@ export const AppDirectory: Map<number, Tab> = new Map([
       program: App.OUTLOOK,
       prompt: false,
       backBtnActive: false,
+      cascade: 0,
     },
   ],
   [
@@ -98,6 +101,7 @@ export const AppDirectory: Map<number, Tab> = new Map([
       program: App.MYWORK,
       prompt: false,
       backBtnActive: false,
+      cascade: 0,
     },
   ],
   [
@@ -112,6 +116,7 @@ export const AppDirectory: Map<number, Tab> = new Map([
       program: App.SKILLS,
       prompt: false,
       backBtnActive: false,
+      cascade: 0,
     },
   ],
   [
@@ -120,12 +125,13 @@ export const AppDirectory: Map<number, Tab> = new Map([
       id: 0,
       title: "Space Cadet Pinball",
       message: "",
-      Icon: solitaire,
+      Icon: pinball,
       isMinimized: false,
       zIndex: 0,
       program: App.PINBALL,
       prompt: false,
       backBtnActive: false,
+      cascade: 0,
     },
   ],
   [
@@ -140,6 +146,7 @@ export const AppDirectory: Map<number, Tab> = new Map([
       program: App.ERROR,
       prompt: true,
       backBtnActive: false,
+      cascade: 0,
     },
   ],
   [
@@ -154,6 +161,7 @@ export const AppDirectory: Map<number, Tab> = new Map([
       program: App.WARNING,
       prompt: true,
       backBtnActive: false,
+      cascade: 0,
     },
   ],
   [
@@ -168,6 +176,7 @@ export const AppDirectory: Map<number, Tab> = new Map([
       program: App.INFO,
       prompt: true,
       backBtnActive: false,
+      cascade: 0,
     },
   ],
   [
@@ -182,6 +191,7 @@ export const AppDirectory: Map<number, Tab> = new Map([
       program: App.HELP,
       prompt: true,
       backBtnActive: false,
+      cascade: 0,
     },
   ],
 ]);

@@ -1,15 +1,14 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import StartBar from "components/StartBar/StartBar";
 import "xp.css/dist/XP.css";
 import styles from "../styles/Home.module.css";
 import DesktopIcon from "components/DesktopIcon/DesktopIcon";
 import mycomputer from "../../assets/mycomputer.png";
 import bin from "../../assets/recycling_bin.png";
-import github from "../../assets/github.png";
 import cmd from "../../assets/cmd.png";
 import solitare from "../../assets/solitaire.png";
 import linkedin from "../../assets/linkedin.png";
+import pinball from "../../assets/pinball.png";
 import WinForm from "components/WinForm/WinForm";
 import { useEffect, useState } from "react";
 import store from "@/redux/store";
@@ -33,13 +32,9 @@ export default function Home() {
     store.dispatch(addTab(newTab));
   };
 
-  const handleOpenGitHub = () => {
-    window.open("https://github.com/NZCHiLLY", "_blank", "noreferrer");
-  };
-
   const handleOpenLinkedin = () => {
     window.open(
-      "https://www.linkedin.com/",
+      "https://www.linkedin.com/in/jayson-chilman/",
       "_blank",
       "noreferrer"
     );
@@ -83,13 +78,7 @@ export default function Home() {
             appID={4}
             doubleClick={() => handleRunApp(9)}
             title="Pinball"
-            img={solitare}
-          />
-          <DesktopIcon
-            appID={5}
-            doubleClick={handleOpenGitHub}
-            title="GitHub"
-            img={github}
+            img={pinball}
           />
           <DesktopIcon
             appID={7}
