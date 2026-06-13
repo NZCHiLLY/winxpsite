@@ -134,7 +134,7 @@ const Welcome = ({ id }: props) => {
           <div className={styles.content}>
             <div className={styles.pic_col}>
               <Image
-                alt="profile placeholder"
+                alt="Windows XP user icon"
                 src={users.src}
                 width={200}
                 height={200}
