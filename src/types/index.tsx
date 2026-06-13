@@ -19,9 +19,6 @@ export type RootState = {
     currentFocusedTab: number;
     currentZIndex: number;
   };
-  system: {
-    backactive: boolean;
-  };
 };
 
 export enum App {
