@@ -49,6 +49,12 @@ export const TechIcon = {
   GRAPHQL:
     "https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white",
   AWS: "https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white",
+  VMWARE:
+    "https://img.shields.io/badge/VMware-607078?style=for-the-badge&logo=vmware&logoColor=white",
+  LINUX:
+    "https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black",
+  OPENAI:
+    "https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white",
 };
 
 export const AppDirectory: Map<number, Tab> = new Map([
@@ -182,8 +188,8 @@ export const AppDirectory: Map<number, Tab> = new Map([
 
 export const WorkAccordionTitles = [
   WorkType.PERSONAL,
-  WorkType.HACKATHON,
-  WorkType.SCHOOL,
+  WorkType.INFRASTRUCTURE,
+  WorkType.AUTOMATION,
 ];
 
 export const WorkData = [
@@ -209,51 +215,53 @@ export const WorkData = [
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    date: "Jan 2026 - Apr 2026",
-    gitURL: "https://github.com/NZCHiLLY/placeholder-project",
+    title: "Multi-Agent AI Platform",
+    date: "Mar 2026 - May 2026",
+    gitURL: "",
     techstack: [
       TechIcon.TYPESCRIPT,
-      TechIcon.NEXTJS,
-      TechIcon.POSTGRES,
-      TechIcon.TAILWIND,
+      TechIcon.NODEJS,
       TechIcon.DOCKER,
+      TechIcon.OPENAI,
     ],
-    overview: `A full-stack e-commerce platform with product catalogue, shopping cart, Stripe payment
-    integration, and an admin dashboard for inventory management. Built with a focus on performance
-    and accessibility. Features server-side rendering for SEO, real-time inventory tracking, and a
-    responsive design that works across all devices.`,
+    overview: `Designed and built a multi-agent AI platform that provides natural-language access to
+    business systems. Features a hardened OAuth 2.0 security layer, a custom intent-inspection
+    middleware that gates destructive operations, and a single-entry-point architecture routing to
+    specialised sub-agents. Built with TypeScript, containerised with Docker, and deployed behind
+    TLS with automated test coverage. Reduces complex multi-step operations to plain-language
+    requests while maintaining least-privilege access controls.`,
   },
   {
     id: 3,
-    title: "Real-Time Collaboration Tool",
-    date: "Sep 2025 - Dec 2025",
-    gitURL: "https://github.com/NZCHiLLY/placeholder-project",
+    title: "Private Cloud & Infrastructure Platform",
+    date: "2019 - 2024",
+    gitURL: "",
     techstack: [
-      TechIcon.TYPESCRIPT,
-      TechIcon.NODEJS,
-      TechIcon.MONGODB,
-      TechIcon.GRAPHQL,
+      TechIcon.VMWARE,
+      TechIcon.LINUX,
+      TechIcon.DOCKER,
     ],
-    overview: `A collaborative document editing tool with real-time synchronisation, presence awareness,
-    and version history. Uses WebSocket connections for live updates and operational transform for
-    conflict resolution. Supports markdown formatting, inline comments, and export to multiple formats.`,
+    overview: `Architected and built a private cloud platform from bare metal up, serving organisations
+    from a handful of users to 500+ on a single subscription model. Hyper-V failover cluster with
+    SAN storage, site-to-site VPN per tenant, and a multi-site backup architecture with 28-day
+    retention replicated to an offshore disaster recovery site. Includes automated monitoring,
+    endpoint security, and a recovery SLA measured in hours for full data centre failover.`,
   },
   {
     id: 4,
-    title: "API Gateway & Microservices",
-    date: "May 2025 - Aug 2025",
-    gitURL: "https://github.com/NZCHiLLY/placeholder-project",
+    title: "Vector Memory & Semantic Search System",
+    date: "Apr 2026 - May 2026",
+    gitURL: "",
     techstack: [
-      TechIcon.TYPESCRIPT,
-      TechIcon.NODEJS,
-      TechIcon.AWS,
+      TechIcon.PYTHON,
       TechIcon.DOCKER,
+      TechIcon.OPENAI,
     ],
-    overview: `Designed and implemented a scalable API gateway with rate limiting, authentication, and
-    request routing across a fleet of microservices. Deployed on AWS ECS with auto-scaling, CloudFront
-    CDN, and comprehensive monitoring via CloudWatch. Handles 10k+ requests per minute with sub-50ms
-    p95 latency.`,
+    overview: `Built a retrieval-augmented generation system with semantic memory, chunking pipeline,
+    and vector search. Ingests thousands of documents, extracts entities and concepts, and surfaces
+    relevant context on demand — reducing context requirements by roughly 90% for complex sessions.
+    Features a 3D vector-space visualiser, relationship deduplication, and multi-model orchestration
+    across embedding and chunking models.`,
   },
 ] as WorkContent[];
 
@@ -267,23 +275,23 @@ export const WorkAccordionContent = [
   },
   {
     id: 2,
-    type: WorkType.PERSONAL,
+    type: WorkType.AUTOMATION,
     icon: folder,
-    title: "E-Commerce Platform",
+    title: "Multi-Agent AI Platform",
     content: WorkData[WorkData.findIndex((x) => x.id === 2)],
   },
   {
     id: 3,
-    type: WorkType.HACKATHON,
+    type: WorkType.INFRASTRUCTURE,
     icon: folder,
-    title: "Real-Time Collaboration Tool",
+    title: "Private Cloud & Infrastructure Platform",
     content: WorkData[WorkData.findIndex((x) => x.id === 3)],
   },
   {
     id: 4,
-    type: WorkType.SCHOOL,
+    type: WorkType.AUTOMATION,
     icon: folder,
-    title: "API Gateway & Microservices",
+    title: "Vector Memory & Semantic Search System",
     content: WorkData[WorkData.findIndex((x) => x.id === 4)],
   },
 ] as WorkFile[];
@@ -303,44 +311,56 @@ export type Skill = {
 export const SkillsData: SkillCategory[] = [
   {
     id: 1,
-    title: "Frontend",
+    title: "Software Development",
     skills: [
-      { name: "React / Next.js", level: 90 },
-      { name: "TypeScript", level: 85 },
-      { name: "HTML / CSS", level: 95 },
-      { name: "Vue.js", level: 60 },
-      { name: "Tailwind CSS", level: 80 },
+      { name: "TypeScript", level: 80 },
+      { name: "React / Next.js", level: 75 },
+      { name: "Python", level: 80 },
+      { name: "Node.js", level: 75 },
+      { name: "HTML / CSS", level: 85 },
     ],
   },
   {
     id: 2,
-    title: "Backend",
+    title: "Cloud & Infrastructure",
     skills: [
-      { name: "Node.js", level: 85 },
-      { name: "Python", level: 70 },
-      { name: "PostgreSQL", level: 75 },
-      { name: "MongoDB", level: 70 },
-      { name: "GraphQL", level: 65 },
+      { name: "Virtualisation (Hyper-V / VMware)", level: 90 },
+      { name: "Linux", level: 85 },
+      { name: "Network & Security (FortiGate)", level: 90 },
+      { name: "Docker", level: 80 },
+      { name: "Storage (SAN / NAS)", level: 85 },
     ],
   },
   {
     id: 3,
-    title: "DevOps & Tools",
+    title: "Voice & Communications",
     skills: [
-      { name: "Docker", level: 75 },
-      { name: "Git", level: 90 },
-      { name: "AWS", level: 60 },
-      { name: "CI/CD", level: 70 },
-      { name: "Linux", level: 75 },
+      { name: "VoIP (3CX / SIP)", level: 95 },
+      { name: "PBXWare / ServerWARE", level: 90 },
+      { name: "QoS Monitoring", level: 85 },
+      { name: "IVR & Call Queue Design", level: 85 },
     ],
   },
   {
     id: 4,
-    title: "Design",
+    title: "AI & Automation",
     skills: [
-      { name: "Figma", level: 65 },
-      { name: "UI/UX Design", level: 70 },
-      { name: "Responsive Design", level: 85 },
+      { name: "LLM / RAG Systems", level: 85 },
+      { name: "MCP Servers & Tooling", level: 85 },
+      { name: "Prompt Engineering", level: 90 },
+      { name: "Vector Search (Qdrant)", level: 80 },
+      { name: "Power Automate", level: 80 },
+    ],
+  },
+  {
+    id: 5,
+    title: "Microsoft 365",
+    skills: [
+      { name: "Exchange Online", level: 90 },
+      { name: "Entra ID / Identity", level: 90 },
+      { name: "SharePoint", level: 85 },
+      { name: "Intune / MDM", level: 80 },
+      { name: "Migrations", level: 90 },
     ],
   },
 ];

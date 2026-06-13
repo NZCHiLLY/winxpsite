@@ -4,7 +4,7 @@ A personal portfolio website that faithfully recreates the Windows XP desktop ex
 
 Built as a tribute to the operating system that sparked a generation of developers.
 
-**[chilman.co.nz](https://chilman.co.nz)** — deployed on Vercel.
+**[chilman.co.nz](https://chilman.co.nz)**
 
 ## Tech Stack
 
@@ -16,7 +16,6 @@ Built as a tribute to the operating system that sparked a generation of develope
 | Styling | CSS Modules, xp.css |
 | Interactivity | react-draggable |
 | Email | Microsoft Graph API (M365) |
-| Hosting | Vercel |
 
 ## Features
 
@@ -72,12 +71,11 @@ TO_EMAIL=hello@chilman.co.nz
 
 `FROM_EMAIL` must be a licensed mailbox in the tenant. `TO_EMAIL` is where contact form messages land.
 
-## Deployment
-
-The site deploys to Vercel with zero-config. Set the same five environment variables in your Vercel project settings.
-
 ## Credits
 
+**Original project** — This portfolio is a fork of **[firwer/winxpsite](https://github.com/firwer/winxpsite)**. The XP desktop shell (window management, Start menu, taskbar, draggable windows, desktop icons) was built by firwer. All subsequent customisation, rebranding, and feature work is mine.
+
+**Libraries and inspiration:**
 - [xp.css](https://github.com/botoxparty/XP.css) — CSS pre-styled XP components (buttons, scrollbar)
 - [ShizukuIchi/winXP](https://github.com/ShizukuIchi/winXP) — General inspiration and Start menu styling
 - [alula/SpaceCadetPinball](https://github.com/alula/SpaceCadetPinball) — WebAssembly port of 3D Pinball Space Cadet

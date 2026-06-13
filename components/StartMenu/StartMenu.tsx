@@ -25,6 +25,8 @@ import printerfax from "../../assets/printerfax.png";
 import { AppDirectory } from "@/appData";
 import { addTab } from "@/redux/tabSlice";
 import store from "@/redux/store";
+import { useSelector } from "react-redux";
+import { RootState } from "@/types";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 
@@ -33,6 +35,20 @@ interface StartMenuProps {
 }
 
 const StartMenu = ({ menuControl }: StartMenuProps) => {
+  const currTabID = useSelector((state: RootState) => state.tab.id);
+
+  const handleOpenDialog = (title: string, message: string) => {
+    menuControl(false);
+    const dialogTab = {
+      ...AppDirectory.get(7),
+      id: uuidv4(),
+      zIndex: currTabID,
+      title,
+      message,
+    };
+    store.dispatch(addTab(dialogTab));
+  };
+
   const handleOpenGitHub = () => {
     window.open("https://github.com/NZCHiLLY", "_blank", "noreferrer");
   };
@@ -84,6 +100,7 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
         <div className={styles.leftmenu}>
           <div>
             <StartMenuItem
+              onClick={handleOpenGitHub}
               title="Internet"
               subtitle="Internet Explorer"
               icon={ie}
@@ -134,7 +151,12 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
               icon={linkedin}
               type={2}
             />
-            <StartMenuItem title="Paint" icon={paint} type={2} />
+            <StartMenuItem
+              onClick={() => handleOpenDialog("Paint", "Paint requires 256-colour mode and a steady hand. Your mouse appears to be calibrated for spreadsheet work. Please try again after coffee.")}
+              title="Paint"
+              icon={paint}
+              type={2}
+            />
           </div>
           <div>
             <hr className={styles.greyhr} />
@@ -151,32 +173,117 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
           </div>
         </div>
         <div className={styles.rightmenu}>
-          <StartMenuItem title="My Documents" icon={folder} type={3} />
           <StartMenuItem
+            onClick={() => handleRunApp(2)}
+            title="My Documents"
+            icon={folder}
+            type={3}
+          />
+          <StartMenuItem
+            onClick={() => handleRunApp(0)}
             title="My Recent Documents"
             icon={recentdoc}
             type={3}
             expanded={true}
           />
-          <StartMenuItem title="My Pictures" icon={folder_image} type={3} />
-          <StartMenuItem title="My Music" icon={folder_music} type={3} />
-          <StartMenuItem title="My Computer" icon={mycomputer} type={3} />
-          <hr className={styles.bluehr} />
-          <StartMenuItem title="Control Panel" icon={clipboard} type={4} />
           <StartMenuItem
+            onClick={() =>
+              handleOpenDialog(
+                "My Pictures",
+                "No pictures found. This folder is as empty as a freshly formatted floppy disk."
+              )
+            }
+            title="My Pictures"
+            icon={folder_image}
+            type={3}
+          />
+          <StartMenuItem
+            onClick={() =>
+              handleOpenDialog(
+                "My Music",
+                "Windows Media Player could not find any music. Try inserting a CD-ROM or connecting to a 56k modem and firing up Napster."
+              )
+            }
+            title="My Music"
+            icon={folder_music}
+            type={3}
+          />
+          <StartMenuItem
+            onClick={() => handleRunApp(3)}
+            title="My Computer"
+            icon={mycomputer}
+            type={3}
+          />
+          <hr className={styles.bluehr} />
+          <StartMenuItem
+            onClick={() => handleRunApp(3)}
+            title="Control Panel"
+            icon={clipboard}
+            type={4}
+          />
+          <StartMenuItem
+            onClick={() =>
+              handleOpenDialog(
+                "Set Program Access and Defaults",
+                "All program defaults are already set to Awesome™. No further configuration is required."
+              )
+            }
             title="Set Program Access and Defaults"
             icon={defaultprog}
             type={4}
           />
-          <StartMenuItem title="Printer and Faxes" icon={printerfax} type={4} />
+          <StartMenuItem
+            onClick={() =>
+              handleOpenDialog(
+                "Printer and Faxes",
+                "No printers or fax machines detected. This is the paperless future you were promised in 2001."
+              )
+            }
+            title="Printer and Faxes"
+            icon={printerfax}
+            type={4}
+          />
           <hr className={styles.bluehr} />
-          <StartMenuItem title="Help and Support" icon={help} type={4} />
-          <StartMenuItem title="Search" icon={search} type={4} />
-          <StartMenuItem title="Run..." icon={run} type={4} />
+          <StartMenuItem
+            onClick={() => handleRunApp(0)}
+            title="Help and Support"
+            icon={help}
+            type={4}
+          />
+          <StartMenuItem
+            onClick={() =>
+              handleOpenDialog(
+                "Search Results",
+                "Search is indexing your files. Estimated time remaining: 23 years. Windows XP Search companion (the dog) has retired and moved to Florida."
+              )
+            }
+            title="Search"
+            icon={search}
+            type={4}
+          />
+          <StartMenuItem
+            onClick={() =>
+              handleOpenDialog(
+                "Run",
+                "Type the name of a program, folder, document, or Internet resource, and Windows will open it for you.\n\nJust kidding. This is a website."
+              )
+            }
+            title="Run..."
+            icon={run}
+            type={4}
+          />
         </div>
       </div>
       <div className={styles.menubtmbar}>
-        <div className={styles.systemBtn}>
+        <div
+          className={styles.systemBtn}
+          onClick={() =>
+            handleOpenDialog(
+              "Log Off Windows",
+              "Are you sure you want to log off? Your programs will remain open and your unsaved progress will haunt you in your dreams."
+            )
+          }
+        >
           <Image
             width={30}
             height={30}
@@ -186,7 +293,15 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
           />
           Log Off
         </div>
-        <div className={styles.systemBtn}>
+        <div
+          className={styles.systemBtn}
+          onClick={() =>
+            handleOpenDialog(
+              "Turn Off Computer",
+              "It is now safe to turn off your computer.\n\nBut please don't. We're having too much fun."
+            )
+          }
+        >
           <Image
             width={30}
             height={30}

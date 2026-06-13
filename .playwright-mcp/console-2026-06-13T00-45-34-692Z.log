@@ -1,0 +1,145 @@
+[     600ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(pages-dir-browser)/./node_modules/react-dom/cjs/react-dom.development.js:29834
+[     695ms] [LOG] [HMR] connected @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:45
+[     728ms] [ERROR] Warning: Prop `%s` did not match. Server: %s Client: %s%s style "null" "filter:" 
+    at div
+    at div
+    at div
+    at div
+    at DraggableCore (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/DraggableCore.js:75:5)
+    at Draggable (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/Draggable.js:84:5)
+    at WinForm (webpack-internal:///(pages-dir-browser)/./components/WinForm/WinForm.tsx:32:88)
+    at div
+    at main
+    at Home (webpack-internal:///(pages-dir-browser)/./src/pages/index.tsx:62:75)
+    at Provider (webpack-internal:///(pages-dir-browser)/./node_modules/react-redux/es/components/Provider.js:16:3)
+    at main
+    at App (webpack-internal:///(pages-dir-browser)/./src/pages/_app.tsx:21:11)
+    at PathnameContextProviderAdapter (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/shared/lib/router/adapters.js:81:11)
+    at PagesDevOverlayErrorBoundary (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-error-boundary.js:25:9)
+    at PagesDevOverlayBridge (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:45:11)
+    at Container (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:76:1)
+    at AppContainer (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:184:11)
+    at Root (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:413:11) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:76
+[     736ms] [ERROR] Warning: %s is deprecated in StrictMode. %s was passed an instance of %s which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s findDOMNode findDOMNode DraggableCore 
+    at div
+    at DraggableCore (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/DraggableCore.js:75:5)
+    at Draggable (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/Draggable.js:84:5)
+    at WinForm (webpack-internal:///(pages-dir-browser)/./components/WinForm/WinForm.tsx:32:88)
+    at div
+    at main
+    at Home (webpack-internal:///(pages-dir-browser)/./src/pages/index.tsx:62:75)
+    at Provider (webpack-internal:///(pages-dir-browser)/./node_modules/react-redux/es/components/Provider.js:16:3)
+    at main
+    at App (webpack-internal:///(pages-dir-browser)/./src/pages/_app.tsx:21:11)
+    at PathnameContextProviderAdapter (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/shared/lib/router/adapters.js:81:11)
+    at PagesDevOverlayErrorBoundary (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-error-boundary.js:25:9)
+    at PagesDevOverlayBridge (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:45:11)
+    at Container (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:76:1)
+    at AppContainer (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:184:11)
+    at Root (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:413:11) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:76
+[     736ms] [ERROR] Warning: %s is deprecated in StrictMode. %s was passed an instance of %s which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s findDOMNode findDOMNode Draggable 
+    at div
+    at DraggableCore (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/DraggableCore.js:75:5)
+    at Draggable (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/Draggable.js:84:5)
+    at WinForm (webpack-internal:///(pages-dir-browser)/./components/WinForm/WinForm.tsx:32:88)
+    at div
+    at main
+    at Home (webpack-internal:///(pages-dir-browser)/./src/pages/index.tsx:62:75)
+    at Provider (webpack-internal:///(pages-dir-browser)/./node_modules/react-redux/es/components/Provider.js:16:3)
+    at main
+    at App (webpack-internal:///(pages-dir-browser)/./src/pages/_app.tsx:21:11)
+    at PathnameContextProviderAdapter (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/shared/lib/router/adapters.js:81:11)
+    at PagesDevOverlayErrorBoundary (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-error-boundary.js:25:9)
+    at PagesDevOverlayBridge (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:45:11)
+    at Container (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:76:1)
+    at AppContainer (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:184:11)
+    at Root (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:413:11) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:76
+[     777ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ https://cdn.vercel-insights.com/v1/script.debug.js:0
+[     777ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics, sdkv: 0.1.11, ts: 1781311535469} /_vercel/insights/view @ https://cdn.vercel-insights.com/v1/script.debug.js:0
+[   24933ms] [ERROR] Warning: Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.%s 
+
+Check the render method of `Home`.  
+    at Home (webpack-internal:///(pages-dir-browser)/./src/pages/index.tsx:62:75)
+    at Provider (webpack-internal:///(pages-dir-browser)/./node_modules/react-redux/es/components/Provider.js:16:3)
+    at main
+    at App (webpack-internal:///(pages-dir-browser)/./src/pages/_app.tsx:21:11)
+    at PathnameContextProviderAdapter (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/shared/lib/router/adapters.js:81:11)
+    at PagesDevOverlayErrorBoundary (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-error-boundary.js:25:9)
+    at PagesDevOverlayBridge (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:45:11)
+    at Container (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:76:1)
+    at AppContainer (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:184:11)
+    at Root (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:413:11) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:76
+[   67682ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:206
+[   67747ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:206
+[   67768ms] [LOG] [Fast Refresh] done in 20ms @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:13
+[   67980ms] [LOG] [Fast Refresh] done in 233ms @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:13
+[   74179ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(pages-dir-browser)/./node_modules/react-dom/cjs/react-dom.development.js:29834
+[   74217ms] [LOG] [HMR] connected @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:45
+[   74251ms] [ERROR] Warning: Prop `%s` did not match. Server: %s Client: %s%s style "top:10%;left:20%;position:absolute;display:inline;width:750px;height:75%;z-index:0;transform:translate(0px,0px)" "top:10%;left:20%;bottom:;position:absolute;display:inline;width:750px;height:75%;z-index:0;transform:translate(0px,0px)" 
+    at div
+    at DraggableCore (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/DraggableCore.js:75:5)
+    at Draggable (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/Draggable.js:84:5)
+    at WinForm (webpack-internal:///(pages-dir-browser)/./components/WinForm/WinForm.tsx:32:88)
+    at div
+    at main
+    at Home (webpack-internal:///(pages-dir-browser)/./src/pages/index.tsx:62:75)
+    at Provider (webpack-internal:///(pages-dir-browser)/./node_modules/react-redux/es/components/Provider.js:16:3)
+    at main
+    at App (webpack-internal:///(pages-dir-browser)/./src/pages/_app.tsx:21:11)
+    at PathnameContextProviderAdapter (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/shared/lib/router/adapters.js:81:11)
+    at PagesDevOverlayErrorBoundary (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-error-boundary.js:25:9)
+    at PagesDevOverlayBridge (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:45:11)
+    at Container (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:76:1)
+    at AppContainer (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:184:11)
+    at Root (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:413:11) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:76
+[   74253ms] [ERROR] Warning: %s is deprecated in StrictMode. %s was passed an instance of %s which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s findDOMNode findDOMNode DraggableCore 
+    at div
+    at DraggableCore (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/DraggableCore.js:75:5)
+    at Draggable (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/Draggable.js:84:5)
+    at WinForm (webpack-internal:///(pages-dir-browser)/./components/WinForm/WinForm.tsx:32:88)
+    at div
+    at main
+    at Home (webpack-internal:///(pages-dir-browser)/./src/pages/index.tsx:62:75)
+    at Provider (webpack-internal:///(pages-dir-browser)/./node_modules/react-redux/es/components/Provider.js:16:3)
+    at main
+    at App (webpack-internal:///(pages-dir-browser)/./src/pages/_app.tsx:21:11)
+    at PathnameContextProviderAdapter (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/shared/lib/router/adapters.js:81:11)
+    at PagesDevOverlayErrorBoundary (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-error-boundary.js:25:9)
+    at PagesDevOverlayBridge (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:45:11)
+    at Container (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:76:1)
+    at AppContainer (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:184:11)
+    at Root (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:413:11) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:76
+[   74253ms] [ERROR] Warning: %s is deprecated in StrictMode. %s was passed an instance of %s which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s findDOMNode findDOMNode Draggable 
+    at div
+    at DraggableCore (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/DraggableCore.js:75:5)
+    at Draggable (webpack-internal:///(pages-dir-browser)/./node_modules/react-draggable/build/cjs/Draggable.js:84:5)
+    at WinForm (webpack-internal:///(pages-dir-browser)/./components/WinForm/WinForm.tsx:32:88)
+    at div
+    at main
+    at Home (webpack-internal:///(pages-dir-browser)/./src/pages/index.tsx:62:75)
+    at Provider (webpack-internal:///(pages-dir-browser)/./node_modules/react-redux/es/components/Provider.js:16:3)
+    at main
+    at App (webpack-internal:///(pages-dir-browser)/./src/pages/_app.tsx:21:11)
+    at PathnameContextProviderAdapter (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/shared/lib/router/adapters.js:81:11)
+    at PagesDevOverlayErrorBoundary (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-error-boundary.js:25:9)
+    at PagesDevOverlayBridge (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:45:11)
+    at Container (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:76:1)
+    at AppContainer (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:184:11)
+    at Root (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:413:11) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:76
+[   74274ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ https://cdn.vercel-insights.com/v1/script.debug.js:0
+[   74274ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics, sdkv: 0.1.11, ts: 1781311608966} /_vercel/insights/view @ https://cdn.vercel-insights.com/v1/script.debug.js:0
+[   77471ms] [ERROR] Warning: Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.%s 
+
+Check the render method of `Home`.  
+    at Home (webpack-internal:///(pages-dir-browser)/./src/pages/index.tsx:62:75)
+    at Provider (webpack-internal:///(pages-dir-browser)/./node_modules/react-redux/es/components/Provider.js:16:3)
+    at main
+    at App (webpack-internal:///(pages-dir-browser)/./src/pages/_app.tsx:21:11)
+    at PathnameContextProviderAdapter (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/shared/lib/router/adapters.js:81:11)
+    at PagesDevOverlayErrorBoundary (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-error-boundary.js:25:9)
+    at PagesDevOverlayBridge (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:45:11)
+    at Container (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:76:1)
+    at AppContainer (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:184:11)
+    at Root (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/index.js:413:11) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:76
+[  123721ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:206
+[  123826ms] [LOG] [Fast Refresh] done in 106ms @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:13

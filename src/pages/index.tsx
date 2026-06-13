@@ -93,7 +93,18 @@ export default function Home() {
           />
           <DesktopIcon
             appID={7}
-            doubleClick={() => void 0}
+            doubleClick={() => {
+              store.dispatch(
+                addTab({
+                  ...AppDirectory.get(7),
+                  id: uuidv4(),
+                  zIndex: currTabID,
+                  title: "Recycle Bin",
+                  message:
+                    "Cannot empty Recycle Bin. It holds the hopes, dreams, and failed build artifacts of a thousand past projects. Some things are better left untouched.",
+                })
+              );
+            }}
             title="Recycle Bin"
             img={bin}
           />
