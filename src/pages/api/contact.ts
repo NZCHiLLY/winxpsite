@@ -8,10 +8,35 @@ export default async function handler(
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { from, subject, message } = req.body;
+  const { from, subject, message, recaptchaToken } = req.body;
 
   if (!from || !subject || !message) {
     return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+
+  if (recaptchaSecret) {
+    if (!recaptchaToken) {
+      return res.status(400).json({ error: "Missing reCAPTCHA verification" });
+    }
+
+    const verifyRes = await fetch(
+      "https://www.google.com/recaptcha/api/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret: recaptchaSecret,
+          response: recaptchaToken,
+        }),
+      }
+    );
+
+    const verify = await verifyRes.json();
+    if (!verify.success) {
+      return res.status(400).json({ error: "reCAPTCHA verification failed" });
+    }
   }
 
   const tenantId = process.env.AZURE_TENANT_ID;

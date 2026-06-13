@@ -104,3 +104,9 @@
   box-shadow: inset 2px 2px 2px #888;
   color: black;
 }
+
+.recaptcha {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
