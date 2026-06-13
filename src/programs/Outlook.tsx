@@ -9,6 +9,7 @@ import undo from "../../assets/toolbar/undo.png";
 import check from "../../assets/toolbar/check.png";
 import spelling from "../../assets/toolbar/spelling.png";
 import { useState, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { v4 as uuidv4 } from "uuid";
 import { AppDirectory } from "@/appData";
 import { addTab } from "@/redux/tabSlice";
@@ -25,6 +26,8 @@ const Outlook = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const subjectRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
   const sendEmail = async () => {
     if (!from || !subject || !message || sending) {
@@ -33,11 +36,15 @@ const Outlook = () => {
 
     setSending(true);
 
+    const recaptchaToken = siteKey
+      ? recaptchaRef.current?.getValue()
+      : undefined;
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ from, subject, message }),
+        body: JSON.stringify({ from, subject, message, recaptchaToken }),
       });
 
       if (!res.ok) {
@@ -60,6 +67,7 @@ const Outlook = () => {
       if (emailRef.current) emailRef.current.value = "";
       if (subjectRef.current) subjectRef.current.value = "";
       if (messageRef.current) messageRef.current.value = "";
+      recaptchaRef.current?.reset();
     } catch {
       const errorTab = {
         ...AppDirectory.get(5),
@@ -69,6 +77,7 @@ const Outlook = () => {
         message: "Failed to send your message. Please try again later, or email me directly at hello@chilman.co.nz.",
       };
       store.dispatch(addTab(errorTab));
+      recaptchaRef.current?.reset();
     } finally {
       setSending(false);
     }
@@ -233,6 +242,15 @@ const Outlook = () => {
           placeholder="Type your message here..."
         ></textarea>
       </div>
+      {siteKey && (
+        <div className={styles.recaptcha}>
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={siteKey}
+            theme="light"
+          />
+        </div>
+      )}
     </div>
   );
 };
