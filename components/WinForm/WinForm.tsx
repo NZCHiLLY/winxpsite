@@ -36,6 +36,10 @@ const WinForm = (props: {
   const currTabID = useSelector(
     (state: RootState) => state.tab.currentFocusedTab
   );
+  const cascadeIndex = useSelector((state: RootState) => {
+    const idx = state.tab.tray.findIndex((t) => t.id === props.id);
+    return idx !== -1 ? state.tab.tray[idx].cascade : 0;
+  });
 
   const handleResizeStart = useCallback(
     (e: React.MouseEvent) => {
@@ -130,8 +134,8 @@ const WinForm = (props: {
       <div
         data-window
         style={{
-          top: isMaximized ? "0" : "10%",
-          left: isMaximized ? "0" : "20%",
+          top: isMaximized ? "0" : `calc(10% + ${cascadeIndex * 28}px)`,
+          left: isMaximized ? "0" : `calc(20% + ${cascadeIndex * 28}px)`,
           bottom: isMaximized ? "20px" : "",
           position: "absolute",
           display: props.prompt ? promptDisplay : normalDisplay,

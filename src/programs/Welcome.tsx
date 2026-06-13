@@ -2,7 +2,6 @@ import WelcomeIcon from "components/WelcomeIcon/WelcomeIcon";
 import styles from "./Welcome.module.css";
 import linkedin from "../../assets/linkedin.png";
 import outlook from "../../assets/outlook_large.png";
-import github from "../../assets/github.png";
 import cmd from "../../assets/cmd.png";
 import users from "../../assets/users.png";
 import butterfly from "../../assets/butterfly.png";
@@ -82,24 +81,12 @@ const Welcome = ({ id }: props) => {
                 onClick={handleSwitchView}
               />
               <WelcomeIcon
-                img={github}
-                text={"My GitHub"}
-                tooltip="Open source projects"
-                onClick={() => {
-                  window.open(
-                    "https://github.com/NZCHiLLY",
-                    "_blank",
-                    "noreferrer"
-                  );
-                }}
-              />
-              <WelcomeIcon
                 img={linkedin}
                 text={"My LinkedIn"}
                 tooltip="Connect with me"
                 onClick={() => {
                   window.open(
-                    "https://www.linkedin.com/",
+                    "https://www.linkedin.com/in/jayson-chilman/",
                     "_blank",
                     "noreferrer"
                   );

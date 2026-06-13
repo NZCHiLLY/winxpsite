@@ -3,7 +3,7 @@ import { App, Tab } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 import help from "../../assets/dialog/help.png";
 
-// Redux Reducer for Tab/Windows State Mangagement
+// Redux Reducer for Tab/Windows State Management
 export const tabtraySlice = createSlice({
   name: "tab",
   initialState: {
@@ -18,22 +18,29 @@ export const tabtraySlice = createSlice({
         program: App.WELCOME,
         prompt: false,
         backBtnActive: false,
+        cascade: 0,
       },
     ] as Tab[],
-    id: 0,
-    currentFocusedTab: -1,
-    currentZIndex: 0,
+    id: 1,
+    currentFocusedTab: 0,
+    currentZIndex: 1,
+    nextCascade: 0,
   },
   reducers: {
     addTab: (state, action) => {
+      const cascadeIndex = action.payload.prompt ? 0 : state.nextCascade;
       const newTab = {
         ...action.payload,
         zIndex: state.currentZIndex,
+        cascade: cascadeIndex,
       };
       state.tray.push(newTab);
       state.currentFocusedTab = newTab.id;
       state.id = state.id + 1;
       state.currentZIndex = state.currentZIndex + 1;
+      if (!newTab.prompt) {
+        state.nextCascade = (state.nextCascade + 1) % 8;
+      }
     },
     removeTab: (state, action) => {
       const index = state.tray.findIndex((tab) => tab.id === action.payload.id);

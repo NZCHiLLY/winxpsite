@@ -1,7 +1,3 @@
-.window {
-  height: 400px;
-}
-
 .titlebar_unfocused {
   display: flex;
   height: 30px;

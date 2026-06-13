@@ -10,6 +10,7 @@ export type Tab = {
   program: App;
   prompt: boolean;
   backBtnActive: boolean;
+  cascade: number;
 };
 
 export type RootState = {
