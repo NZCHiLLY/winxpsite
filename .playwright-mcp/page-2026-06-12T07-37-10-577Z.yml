@@ -1,0 +1,267 @@
+- generic [active] [ref=e1]:
+  - main [ref=e3]:
+    - main [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6] [cursor=pointer]:
+          - img "icon" [ref=e8]
+          - paragraph [ref=e10]: Projects
+        - generic [ref=e11] [cursor=pointer]:
+          - img "icon" [ref=e13]
+          - paragraph [ref=e15]: Skills
+        - generic [ref=e16] [cursor=pointer]:
+          - img "icon" [ref=e18]
+          - paragraph [ref=e20]: Contact
+        - generic [ref=e21] [cursor=pointer]:
+          - img "icon" [ref=e23]
+          - paragraph [ref=e25]: Pinball
+        - generic [ref=e26] [cursor=pointer]:
+          - img "icon" [ref=e28]
+          - paragraph [ref=e30]: GitHub
+        - generic [ref=e31] [cursor=pointer]:
+          - img "icon" [ref=e33]
+          - paragraph [ref=e35]: Recycle Bin
+        - generic [ref=e36]:
+          - generic [ref=e38]:
+            - img "icon" [ref=e39]
+            - generic [ref=e40]: Quick Start Guide
+          - generic [ref=e46]:
+            - generic [ref=e48]:
+              - paragraph [ref=e49]: File
+              - paragraph [ref=e50]: Edit
+              - paragraph [ref=e51]: View
+              - generic [ref=e52]:
+                - paragraph [ref=e53]: Favourites
+                - paragraph [ref=e54]: Tools
+              - paragraph [ref=e55]: Help
+            - generic [ref=e57]:
+              - generic [ref=e58]:
+                - generic [ref=e59]:
+                  - img "back" [ref=e60]
+                  - paragraph [ref=e61]: Back
+                  - separator [ref=e62]
+                  - img "arrow_down" [ref=e63]
+                - generic [ref=e64]:
+                  - img "forward" [ref=e65]
+                  - img "arrow_down" [ref=e66]
+                - img "folder" [ref=e67]
+                - generic [ref=e69]:
+                  - img "search" [ref=e70]
+                  - paragraph [ref=e71]: Search
+                - generic [ref=e72]:
+                  - img "folders" [ref=e73]
+                  - paragraph [ref=e74]: Folders
+                - img "thumbnail" [ref=e76]
+                - img "arrow_down" [ref=e77]
+              - generic [ref=e79]:
+                - paragraph [ref=e80]: Address
+                - generic [ref=e81]:
+                  - generic [ref=e82]:
+                    - img "icon" [ref=e83]
+                    - text: Quick Start Guide
+                  - img "dropdown" [ref=e84]
+                - img "go" [ref=e85]
+                - paragraph [ref=e86]: Go
+            - generic [ref=e88]:
+              - heading "Welcome To Jayson's Personal Website" [level=3] [ref=e142]
+              - paragraph [ref=e143]: Learn more by clicking any of the icons below to get started!
+              - generic [ref=e144]:
+                - generic [ref=e145]:
+                  - generic "Who am I?" [ref=e146]:
+                    - paragraph [ref=e147]: About Me
+                  - generic "Open source projects" [ref=e148]:
+                    - paragraph [ref=e149]: My GitHub
+                  - generic "Connect with me" [ref=e150]:
+                    - paragraph [ref=e151]: My LinkedIn
+                - generic [ref=e152]:
+                  - generic "See what I've built" [ref=e153]:
+                    - paragraph [ref=e154]: Projects
+                  - generic "Send me a message" [ref=e155]:
+                    - paragraph [ref=e156]: Contact Me
+                  - generic "Technologies I use" [ref=e157]:
+                    - paragraph [ref=e158]: Skills
+        - generic [ref=e159]:
+          - generic [ref=e161]:
+            - img "icon" [ref=e162]
+            - generic [ref=e163]: Projects
+          - generic [ref=e169]:
+            - generic [ref=e171]:
+              - paragraph [ref=e172]: File
+              - paragraph [ref=e173]: Edit
+              - paragraph [ref=e174]: View
+              - generic [ref=e175]:
+                - paragraph [ref=e176]: Favourites
+                - paragraph [ref=e177]: Tools
+              - paragraph [ref=e178]: Help
+            - generic [ref=e180]:
+              - generic [ref=e181]:
+                - generic [ref=e182]:
+                  - img "back" [ref=e183]
+                  - paragraph [ref=e184]: Back
+                  - separator [ref=e185]
+                  - img "arrow_down" [ref=e186]
+                - generic [ref=e187]:
+                  - img "forward" [ref=e188]
+                  - img "arrow_down" [ref=e189]
+                - img "folder" [ref=e190]
+                - generic [ref=e192]:
+                  - img "search" [ref=e193]
+                  - paragraph [ref=e194]: Search
+                - generic [ref=e195]:
+                  - img "folders" [ref=e196]
+                  - paragraph [ref=e197]: Folders
+                - img "thumbnail" [ref=e199]
+                - img "arrow_down" [ref=e200]
+              - generic [ref=e202]:
+                - paragraph [ref=e203]: Address
+                - generic [ref=e204]:
+                  - generic [ref=e205]:
+                    - img "icon" [ref=e206]
+                    - text: Projects
+                  - img "dropdown" [ref=e207]
+                - img "go" [ref=e208]
+                - paragraph [ref=e209]: Go
+            - generic [ref=e210]:
+              - generic [ref=e213]:
+                - generic [ref=e214]:
+                  - generic [ref=e215] [cursor=pointer]:
+                    - paragraph [ref=e216]: Personal Projects
+                    - img "accordion open" [ref=e218]
+                  - generic [ref=e221] [cursor=pointer]:
+                    - img "accordionbtn" [ref=e222]
+                    - paragraph [ref=e223]: Windows XP Portfolio Website
+                - generic [ref=e224]:
+                  - generic [ref=e225] [cursor=pointer]:
+                    - paragraph [ref=e226]: Infrastructure & Platforms
+                    - img "accordion open" [ref=e228]
+                  - generic [ref=e231] [cursor=pointer]:
+                    - img "accordionbtn" [ref=e232]
+                    - paragraph [ref=e233]: Private Cloud & Infrastructure Platform
+                - generic [ref=e234]:
+                  - generic [ref=e235] [cursor=pointer]:
+                    - paragraph [ref=e236]: AI & Automation
+                    - img "accordion open" [ref=e238]
+                  - generic [ref=e239]:
+                    - generic [ref=e241] [cursor=pointer]:
+                      - img "accordionbtn" [ref=e242]
+                      - paragraph [ref=e243]: Multi-Agent AI Platform
+                    - generic [ref=e245] [cursor=pointer]:
+                      - img "accordionbtn" [ref=e246]
+                      - paragraph [ref=e247]: Vector Memory & Semantic Search System
+              - generic [ref=e249]:
+                - heading "Multi-Agent AI Platform" [level=4] [ref=e300]
+                - generic [ref=e301]:
+                  - heading "Overview:" [level=4] [ref=e302]
+                  - text: Designed and built a multi-agent AI platform that provides natural-language access to business systems. Features a hardened OAuth 2.0 security layer, a custom intent-inspection middleware that gates destructive operations, and a single-entry-point architecture routing to specialised sub-agents. Built with TypeScript, containerised with Docker, and deployed behind TLS with automated test coverage. Reduces complex multi-step operations to plain-language requests while maintaining least-privilege access controls.
+                - generic [ref=e303]:
+                  - heading "Techstack Used" [level=4] [ref=e304]
+                  - generic [ref=e305]:
+                    - img "tech" [ref=e307]
+                    - img "tech" [ref=e309]
+                    - img "tech" [ref=e311]
+                    - img "tech" [ref=e313]
+        - generic [ref=e314]:
+          - generic [ref=e316]:
+            - img "icon" [ref=e317]
+            - generic [ref=e318]: Skills & Technologies
+          - generic [ref=e324]:
+            - generic [ref=e326]:
+              - paragraph [ref=e327]: File
+              - paragraph [ref=e328]: Edit
+              - paragraph [ref=e329]: View
+              - generic [ref=e330]:
+                - paragraph [ref=e331]: Favourites
+                - paragraph [ref=e332]: Tools
+              - paragraph [ref=e333]: Help
+            - generic [ref=e335]:
+              - generic [ref=e336]:
+                - generic [ref=e337]:
+                  - img "back" [ref=e338]
+                  - paragraph [ref=e339]: Back
+                  - separator [ref=e340]
+                  - img "arrow_down" [ref=e341]
+                - generic [ref=e342]:
+                  - img "forward" [ref=e343]
+                  - img "arrow_down" [ref=e344]
+                - img "folder" [ref=e345]
+                - generic [ref=e347]:
+                  - img "search" [ref=e348]
+                  - paragraph [ref=e349]: Search
+                - generic [ref=e350]:
+                  - img "folders" [ref=e351]
+                  - paragraph [ref=e352]: Folders
+                - img "thumbnail" [ref=e354]
+                - img "arrow_down" [ref=e355]
+              - generic [ref=e357]:
+                - paragraph [ref=e358]: Address
+                - generic [ref=e359]:
+                  - generic [ref=e360]:
+                    - img "icon" [ref=e361]
+                    - text: Skills & Technologies
+                  - img "dropdown" [ref=e362]
+                - img "go" [ref=e363]
+                - paragraph [ref=e364]: Go
+            - generic [ref=e365]:
+              - generic [ref=e366]:
+                - heading "Skills & Technologies" [level=3] [ref=e367]
+                - paragraph [ref=e368]: Select a category to expand and view proficiency levels.
+              - generic [ref=e369]:
+                - generic [ref=e370]:
+                  - heading "Software Development" [level=4] [ref=e371]
+                  - generic [ref=e372]:
+                    - generic [ref=e374]: TypeScript
+                    - generic [ref=e378]: React / Next.js
+                    - generic [ref=e382]: Python
+                    - generic [ref=e386]: Node.js
+                    - generic [ref=e390]: HTML / CSS
+                - generic [ref=e393]:
+                  - heading "Cloud & Infrastructure" [level=4] [ref=e394]
+                  - generic [ref=e395]:
+                    - generic [ref=e397]: Virtualisation (Hyper-V / VMware)
+                    - generic [ref=e401]: Linux
+                    - generic [ref=e405]: Network & Security (FortiGate)
+                    - generic [ref=e409]: Docker
+                    - generic [ref=e413]: Storage (SAN / NAS)
+                - generic [ref=e416]:
+                  - heading "Voice & Communications" [level=4] [ref=e417]
+                  - generic [ref=e418]:
+                    - generic [ref=e420]: VoIP (3CX / SIP)
+                    - generic [ref=e424]: PBXWare / ServerWARE
+                    - generic [ref=e428]: QoS Monitoring
+                    - generic [ref=e432]: IVR & Call Queue Design
+                - generic [ref=e435]:
+                  - heading "AI & Automation" [level=4] [ref=e436]
+                  - generic [ref=e437]:
+                    - generic [ref=e439]: LLM / RAG Systems
+                    - generic [ref=e443]: MCP Servers & Tooling
+                    - generic [ref=e447]: Prompt Engineering
+                    - generic [ref=e451]: Vector Search (Qdrant)
+                    - generic [ref=e455]: Power Automate
+                - generic [ref=e458]:
+                  - heading "Microsoft 365" [level=4] [ref=e459]
+                  - generic [ref=e460]:
+                    - generic [ref=e462]: Exchange Online
+                    - generic [ref=e466]: Entra ID / Identity
+                    - generic [ref=e470]: SharePoint
+                    - generic [ref=e474]: Intune / MDM
+                    - generic [ref=e478]: Migrations
+      - generic [ref=e106]:
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - img "icon" [ref=e111]
+            - generic [ref=e112]: Quick Start Guide
+          - generic [ref=e296]:
+            - img "icon" [ref=e297]
+            - generic [ref=e298]: Projects
+          - generic [ref=e481]:
+            - img "icon" [ref=e482]
+            - generic [ref=e483]: Skills & Technologies
+        - generic [ref=e113]:
+          - generic [ref=e115]:
+            - img "Icon 1" [ref=e116]
+            - img "Icon 2" [ref=e117]
+            - img "Icon 3" [ref=e118]
+            - img "Icon 4" [ref=e119]
+          - generic [ref=e120]: 7:37 PM
+  - button "Open Next.js Dev Tools" [ref=e126] [cursor=pointer]:
+    - img [ref=e127]
+  - alert [ref=e130]

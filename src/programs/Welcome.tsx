@@ -16,21 +16,27 @@ import { RootState } from "@/types";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const INTRO = `Hi, I'm Jayson, a software developer based in New Zealand. I build web applications,
-tools, and platforms with a focus on clean architecture and great user experiences.`;
+const INTRO = `I'm a technology generalist based in New Zealand. My career started with freelance IT
+support at 17 and grew into architecting private clouds, multi-tenant voice platforms, and AI-powered
+automation. I work across the full stack, from bare-metal servers and network infrastructure through
+to TypeScript, Python, and LLM systems. I believe the best technology comes from understanding every
+layer between the user and the silicon.`;
 
 const WHYSITE = `This website is a tribute to the Windows XP era — the operating system where I first
 started tinkering with computers. Every detail from the title bar gradients to the Start menu is
 designed to feel like you're sitting at an XP desktop. It's a fun way to present a portfolio that
 stands out from the usual template-driven sites.`;
 
-const INTERESTS = `Outside of software, I enjoy exploring the outdoors — hiking, trail running, and
-making the most of New Zealand's landscapes. I'm also into retro computing, classic games, and
-building things that combine nostalgia with modern web technology.`;
+const INTERESTS = `Outside of technology, I make the most of New Zealand's outdoors — hiking, trail
+running, and exploring the backcountry. I have a soft spot for retro computing and classic games,
+which is part of why this site exists. I'm drawn to projects that combine nostalgia with modern
+engineering.`;
 
-const INTERESTS2 = `When I'm not coding or outdoors, you'll find me reading about system design,
-experimenting with new frameworks, or tinkering with hardware projects. I believe the best software
-comes from understanding both the stack and the people using it.`;
+const INTERESTS2 = `When I'm not outdoors or at a keyboard, I'm usually reading about AI and system
+design, experimenting with language models, or tinkering with hardware. I went back to first
+principles to study how transformers actually work, and I'm fascinated by the intersection of
+infrastructure, automation, and machine intelligence. I also care about the commercial side —
+how technology creates value, not just how it works.`;
 
 interface props {
   id: number;

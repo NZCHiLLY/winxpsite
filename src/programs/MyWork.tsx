@@ -43,7 +43,6 @@ const MyWork = ({ id }: Props) => {
         title: "",
         date: "",
         gitURL: "",
-        gallery: [],
         techstack: [],
         overview: "",
       });
