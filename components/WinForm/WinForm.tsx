@@ -1,4 +1,4 @@
-import { cloneElement, ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
 import styles from "./WinForm.module.css";
 import WinToolBar from "components/WinToolbar/WinToolBar";
@@ -13,8 +13,6 @@ import {
 import store from "@/redux/store";
 import { useSelector } from "react-redux";
 import { App, RootState } from "@/types";
-import { Resizable } from "react-resizable";
-import ResizableComponent from "@/util/Resizer/Resizer";
 
 const unfocusedAdjustment = "brightness(1.05)";
 const WinForm = (props: {
@@ -31,12 +29,56 @@ const WinForm = (props: {
   const [isMinimized, setMinimised] = useState(false);
   const [currX, setX] = useState(0);
   const [currY, setY] = useState(0);
+  const [resizedWidth, setResizedWidth] = useState<number | null>(null);
+  const [resizedHeight, setResizedHeight] = useState<number | null>(null);
+  const isResizing = useRef(false);
+  const resizeStart = useRef({ x: 0, y: 0, w: 0, h: 0 });
   const currTabID = useSelector(
     (state: RootState) => state.tab.currentFocusedTab
   );
 
+  const handleResizeStart = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const el = (e.currentTarget as HTMLElement).closest("[data-window]") as HTMLElement;
+      if (!el) return;
+      isResizing.current = true;
+      resizeStart.current = {
+        x: e.clientX,
+        y: e.clientY,
+        w: el.offsetWidth,
+        h: el.offsetHeight,
+      };
+    },
+    []
+  );
+
+  useEffect(() => {
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isResizing.current) return;
+      const dx = e.clientX - resizeStart.current.x;
+      const dy = e.clientY - resizeStart.current.y;
+      setResizedWidth(Math.max(400, resizeStart.current.w + dx));
+      setResizedHeight(Math.max(300, resizeStart.current.h + dy));
+    };
+    const onMouseUp = () => {
+      isResizing.current = false;
+    };
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+    return () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    };
+  }, []);
+
   const handleMaximize = () => {
     setMaximised(!isMaximized);
+    if (!isMaximized) {
+      setResizedWidth(null);
+      setResizedHeight(null);
+    }
     store.dispatch(maximizeTab({ id: props.id }));
     store.dispatch(setFocusedTab({ id: props.id }));
   };
@@ -73,11 +115,20 @@ const WinForm = (props: {
   const promptWidth = "450px";
   const promptHeight = "auto";
   const normalDisplay = isMinimized ? "none" : "inline";
-  const normalWidth = isMaximized ? "100%" : "750px";
-  const normalHeight = isMaximized ? "calc(100% - 40px)" : "75%";
+  const normalWidth = isMaximized
+    ? "100%"
+    : resizedWidth
+    ? `${resizedWidth}px`
+    : "750px";
+  const normalHeight = isMaximized
+    ? "calc(100% - 40px)"
+    : resizedHeight
+    ? `${resizedHeight}px`
+    : "75%";
   return (
     <Draggable {...draggableProps}>
       <div
+        data-window
         style={{
           top: isMaximized ? "0" : "10%",
           left: isMaximized ? "0" : "20%",
@@ -168,6 +219,12 @@ const WinForm = (props: {
             {props.children}
           </div>
         </div>
+        {!isMaximized && !props.prompt && (
+          <div
+            className={styles.resizeGrip}
+            onMouseDown={handleResizeStart}
+          />
+        )}
       </div>
     </Draggable>
   );

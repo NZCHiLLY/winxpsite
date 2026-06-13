@@ -175,3 +175,40 @@
   opacity: 0.85;
   filter: brightness(80%);
 }
+
+.resizeGrip {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  cursor: nwse-resize;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 30%,
+    rgba(255, 255, 255, 0.4) 30%,
+    rgba(255, 255, 255, 0.4) 35%,
+    transparent 35%,
+    transparent 60%,
+    rgba(80, 80, 130, 0.3) 60%,
+    rgba(80, 80, 130, 0.3) 65%,
+    transparent 65%
+  );
+  z-index: 10;
+}
+
+.resizeGrip:hover {
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 25%,
+    rgba(255, 255, 255, 0.5) 25%,
+    rgba(255, 255, 255, 0.5) 32%,
+    transparent 32%,
+    transparent 55%,
+    rgba(80, 80, 130, 0.5) 55%,
+    rgba(80, 80, 130, 0.5) 62%,
+    transparent 62%
+  );
+}
