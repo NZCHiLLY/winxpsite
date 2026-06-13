@@ -30,6 +30,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+.next-prod/
 
 # playwright
 .playwright-mcp/
@@ -38,12 +39,3 @@ preview-*.png
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-.next-prod/
-.playwright-mcp/
-preview-*.png
-cascade-test.png
-deployed-v2.png
-dev-3000.png
-prod-3001.png
-prod-final.png
-preview-*.png
