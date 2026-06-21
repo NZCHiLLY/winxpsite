@@ -8,108 +8,57 @@ import paste from "../../assets/toolbar/paste.png";
 import undo from "../../assets/toolbar/undo.png";
 import check from "../../assets/toolbar/check.png";
 import spelling from "../../assets/toolbar/spelling.png";
-import { useState, useRef } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
-import { v4 as uuidv4 } from "uuid";
-import { AppDirectory } from "@/appData";
-import { addTab } from "@/redux/tabSlice";
-import store from "@/redux/store";
-import { useSelector } from "react-redux";
-import { RootState } from "@/types";
+import { useState } from "react";
 
 const Outlook = () => {
-  const currTabID = useSelector((state: RootState) => state.tab.id);
   const [from, setFrom] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
-  const [sending, setSending] = useState(false);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const subjectRef = useRef<HTMLInputElement>(null);
-  const messageRef = useRef<HTMLTextAreaElement>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
-  const sendEmail = async () => {
-    if (!from || !subject || !message || sending) {
-      return;
-    }
-
-    setSending(true);
-
-    const recaptchaToken = siteKey
-      ? recaptchaRef.current?.getValue()
-      : undefined;
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ from, subject, message, recaptchaToken }),
-      });
-
-      if (!res.ok) {
-        const { error } = await res.json();
-        throw new Error(error || "Failed to send email");
-      }
-
-      const newTab = {
-        ...AppDirectory.get(7),
-        id: uuidv4(),
-        zIndex: currTabID,
-        title: "Message Sent",
-        message: "Your message has been sent. I will get back to you as soon as possible.",
-      };
-      store.dispatch(addTab(newTab));
-
-      setFrom("");
-      setSubject("");
-      setMessage("");
-      if (emailRef.current) emailRef.current.value = "";
-      if (subjectRef.current) subjectRef.current.value = "";
-      if (messageRef.current) messageRef.current.value = "";
-      recaptchaRef.current?.reset();
-    } catch {
-      const errorTab = {
-        ...AppDirectory.get(5),
-        id: uuidv4(),
-        zIndex: currTabID,
-        title: "Error — Email Failed",
-        message: "Failed to send your message. Please try again later, or email me directly at hello@chilman.co.nz.",
-      };
-      store.dispatch(addTab(errorTab));
-      recaptchaRef.current?.reset();
-    } finally {
-      setSending(false);
-    }
+  const buildMailto = () => {
+    const body = `From: ${from}\n\n${message}`;
+    const params = new URLSearchParams({ subject, body });
+    return `mailto:hello@chilman.co.nz?${params.toString()}`;
   };
+
+  const canSend = from !== "" && subject !== "" && message !== "";
 
   return (
     <div className={styles.main}>
       <div className={styles.icons_toolbar}>
-        <div
-          className={
-            from !== "" && subject !== "" && message !== "" && !sending
-              ? styles.icon
-              : styles.icon_disabled
-          }
-        >
-          <Image
-            style={
-              from !== "" && subject !== "" && message !== "" && !sending
-                ? { margin: "0 4px" }
-                : {
-                    margin: "0 4px",
-                    filter: "grayscale(100%) brightness(0.9)",
-                  }
-            }
-            alt="send"
-            width={40}
-            height={30}
-            src={send.src}
-            onClick={sendEmail}
-          />
-          <p>{sending ? "..." : "Send"}</p>
-        </div>
+        {canSend ? (
+          <a
+            className={styles.icon}
+            href={buildMailto()}
+            onClick={(e) => {
+              if (!canSend) e.preventDefault();
+            }}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <Image
+              style={{ margin: "0 4px" }}
+              alt="send"
+              width={40}
+              height={30}
+              src={send.src}
+            />
+            <p>Send</p>
+          </a>
+        ) : (
+          <div className={styles.icon_disabled}>
+            <Image
+              style={{
+                margin: "0 4px",
+                filter: "grayscale(100%) brightness(0.9)",
+              }}
+              alt="send"
+              width={40}
+              height={30}
+              src={send.src}
+            />
+            <p>Send</p>
+          </div>
+        )}
         <div className={styles.vertical_line} />
         <div className={styles.icon}>
           <Image
@@ -211,20 +160,14 @@ const Outlook = () => {
             />
             <input
               className={styles.textfield}
-              ref={emailRef}
               placeholder="Enter your email address"
-              onChange={(e) => {
-                setFrom(e.target.value);
-              }}
+              onChange={(e) => setFrom(e.target.value)}
               type="email"
             />
             <input
               className={styles.textfield}
-              ref={subjectRef}
               placeholder="What is this message regarding?"
-              onChange={(e) => {
-                setSubject(e.target.value);
-              }}
+              onChange={(e) => setSubject(e.target.value)}
               type="text"
             />
           </div>
@@ -233,24 +176,12 @@ const Outlook = () => {
       <div className={styles.richfield}>
         <textarea
           draggable={false}
-          ref={messageRef}
           className={styles.richtextbox}
-          onChange={(e) => {
-            setMessage(e.target.value);
-          }}
+          onChange={(e) => setMessage(e.target.value)}
           id="text24"
           placeholder="Type your message here..."
         ></textarea>
       </div>
-      {siteKey && (
-        <div className={styles.recaptcha}>
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey={siteKey}
-            theme="light"
-          />
-        </div>
-      )}
     </div>
   );
 };

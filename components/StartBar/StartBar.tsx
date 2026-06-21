@@ -25,21 +25,18 @@ const getTime = () => {
   if (hour === 0) {
     hour = 12;
   }
-  if (min < 10) {
-    min = 0 + min;
-  }
   return `${hour}:${String(min).padStart(2, "0")} ${hourPostFix}`;
 };
 
 const StartBar = () => {
-  const [time, setTime] = useState(getTime);
+  const [time, setTime] = useState("");
   const ref = useRef<HTMLDivElement>(null);
   const [startMenuOpen, setStartMenuOpen] = useState(false);
   const Tabs = useSelector((state: RootState) => state.tab.tray);
   const currTabID = useSelector(
     (state: RootState) => state.tab.currentFocusedTab
   );
-  const currzIndex = useSelector((state: RootState) => state.tab.currentZIndex);
+  const currZIndex = useSelector((state: RootState) => state.tab.currentZIndex);
 
   const handleTabFocus = (tabID: number) => {
     if (currTabID === tabID) {
@@ -69,8 +66,9 @@ const StartBar = () => {
     setStartMenuOpen(!startMenuOpen);
   };
 
-  // Time Update
+  // Time Update — client-side only to avoid hydration mismatch
   useEffect(() => {
+    setTime(getTime());
     const timer = setInterval(() => {
       setTime(getTime());
     }, 1000);
@@ -91,7 +89,7 @@ const StartBar = () => {
   }, [ref]);
 
   return (
-    <div style={{ zIndex: currzIndex }}>
+    <div style={{ zIndex: currZIndex }}>
       <div className={styles.bluebar}>
         <div ref={ref}>
           <div

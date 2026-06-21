@@ -25,11 +25,10 @@ const WinToolBar = ({ title, icon, programType, id }: props) => {
   const handleBackClick = () => {
     store.dispatch(setBackBtn({ id: id, backBtnActive: false }));
   };
-  const backBtnActive = useSelector(
-    (state: RootState) =>
-      state.tab.tray[state.tab.tray.findIndex((tab) => tab.id === id)]
-        .backBtnActive
-  );
+  const backBtnActive = useSelector((state: RootState) => {
+    const idx = state.tab.tray.findIndex((tab) => tab.id === id);
+    return idx !== -1 ? state.tab.tray[idx].backBtnActive : false;
+  });
   return (
     <>
       <div className={styles.topwindowsbar}>

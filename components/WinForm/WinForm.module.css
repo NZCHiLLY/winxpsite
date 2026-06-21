@@ -1,6 +1,10 @@
+.window {
+  display: flex;
+  flex-direction: column;
+}
+
 .titlebar_unfocused {
   display: flex;
-  height: 30px;
   flex-direction: row;
   justify-content: center;
   background: linear-gradient(
@@ -26,11 +30,11 @@
   align-items: center;
   justify-content: space-between;
   height: 35px;
+  flex-shrink: 0;
 }
 
 .titlebar {
   display: flex;
-  height: 30px;
   flex-direction: row;
   justify-content: center;
   background: linear-gradient(
@@ -58,20 +62,23 @@
   align-items: center;
   justify-content: space-between;
   height: 35px;
+  flex-shrink: 0;
 }
 
 .windowborder_unfocused {
   display: flex;
   background-color: rgb(117, 135, 221);
   padding: 0 4px 4px 4px;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 .windowborder {
   display: flex;
   background-color: rgb(8, 49, 217);
   padding: 0 4px 4px 4px;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 .windowsbody {
@@ -80,6 +87,7 @@
   background-color: white;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 
 .title {
@@ -176,35 +184,16 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   cursor: nwse-resize;
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    transparent 30%,
-    rgba(255, 255, 255, 0.4) 30%,
-    rgba(255, 255, 255, 0.4) 35%,
-    transparent 35%,
-    transparent 60%,
-    rgba(80, 80, 130, 0.3) 60%,
-    rgba(80, 80, 130, 0.3) 65%,
-    transparent 65%
-  );
   z-index: 10;
-}
-
-.resizeGrip:hover {
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    transparent 25%,
-    rgba(255, 255, 255, 0.5) 25%,
-    rgba(255, 255, 255, 0.5) 32%,
-    transparent 32%,
-    transparent 55%,
-    rgba(80, 80, 130, 0.5) 55%,
-    rgba(80, 80, 130, 0.5) 62%,
-    transparent 62%
-  );
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #c0c0c0,
+      #c0c0c0 2px,
+      transparent 2px,
+      transparent 5px
+    );
 }

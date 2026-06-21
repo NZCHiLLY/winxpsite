@@ -11,6 +11,8 @@ export type Tab = {
   prompt: boolean;
   backBtnActive: boolean;
   cascade: number;
+  defaultWidth?: string;
+  defaultHeight?: string;
 };
 
 export type RootState = {
@@ -33,6 +35,7 @@ export enum App {
   WELCOME,
   SKILLS,
   PINBALL,
+  EXPERIENCE,
 }
 
 export enum WorkType {

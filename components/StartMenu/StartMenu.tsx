@@ -124,7 +124,13 @@ const StartMenu = ({ menuControl }: StartMenuProps) => {
             <StartMenuItem
               onClick={() => handleRunApp(3)}
               title="Skills"
-              icon={clipboard}
+              icon={mycomputer}
+              type={2}
+            />
+            <StartMenuItem
+              onClick={() => handleRunApp(10)}
+              title="Experience"
+              icon={folder_image}
               type={2}
             />
             <StartMenuItem

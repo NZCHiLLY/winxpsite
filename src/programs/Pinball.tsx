@@ -5,7 +5,7 @@ const Pinball = () => {
     <div className={styles.main}>
       <iframe
         className={styles.frame}
-        src="https://alula.github.io/SpaceCadetPinball"
+        src="https://pinball.alula.me/"
         title="Space Cadet Pinball"
         allow="autoplay"
       />

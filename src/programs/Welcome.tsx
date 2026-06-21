@@ -4,8 +4,8 @@ import linkedin from "../../assets/linkedin.png";
 import outlook from "../../assets/outlook_large.png";
 import cmd from "../../assets/cmd.png";
 import users from "../../assets/users.png";
-import butterfly from "../../assets/butterfly.png";
-import doc from "../../assets/doc.png";
+import help from "../../assets/help.png";
+import mycomputer from "../../assets/mycomputer.png";
 import { AppDirectory } from "@/appData";
 import store from "@/redux/store";
 import { addTab, setBackBtn } from "@/redux/tabSlice";
@@ -15,26 +15,27 @@ import { RootState } from "@/types";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const INTRO = `I'm a technology generalist based in New Zealand. My career started with freelance IT
-support at 17 and grew into architecting private clouds, multi-tenant voice platforms, and AI-powered
-automation. I work across the full stack, from bare-metal servers and network infrastructure through
-to TypeScript, Python, and LLM systems. I believe the best technology comes from understanding every
-layer between the user and the silicon.`;
+const INTRO = `I lead IT for a New Zealand managed services provider, having worked up from network
+engineer into senior leadership over nearly a decade. I design, build, and run the platforms the
+business and its customers operate on: private cloud, unified communications, networks, and a cybersecurity
+programme aligned to NZISM, HISO, and the Privacy Act. The portfolio spans organisations across
+healthcare, education, legal, government, and industrial sectors. I have built and shipped AI and
+automation into production: Power Automate pipelines, custom agentic AI skills, and a multi-agent MCP
+server with intent-gated security. The commercial side came with the role: pricing, proposals, vendor
+contracts, and translating technical ideas into language that makes sense to business owners and boards.`;
 
-const WHYSITE = `This website is a tribute to the Windows XP era — the operating system where I first
-started tinkering with computers. Every detail from the title bar gradients to the Start menu is
-designed to feel like you're sitting at an XP desktop. It's a fun way to present a portfolio that
-stands out from the usual template-driven sites.`;
+const WHYSITE = `The Windows XP era inspired a generation to explore computing. This site recreates that
+experience, from the title bar gradients through to the Start menu. It is a portfolio that stands apart
+from the usual template-driven sites.`;
 
-const INTERESTS = `Outside of technology, I make the most of New Zealand's outdoors — hiking, trail
-running, and exploring the backcountry. I have a soft spot for retro computing and classic games,
-which is part of why this site exists. I'm drawn to projects that combine nostalgia with modern
-engineering.`;
+const INTERESTS = `I build and tinker with AI pipelines: image, audio, and video generation, LLM orchestration,
+vector memory, and agent-based automation. I make electronic music, design and prototype games, and run a
+homelab with Proxmox, Docker, media servers, and custom networking on my own hardware. I have a soft spot
+for retro computing and classic games, which is part of why this site exists.`;
 
-const INTERESTS2 = `When I'm not outdoors or at a keyboard, I'm usually reading about AI and system
-design, experimenting with language models, or tinkering with hardware. I went back to first
-principles to study how transformers actually work, and I'm fascinated by the intersection of
-infrastructure, automation, and machine intelligence. I also care about the commercial side —
+const INTERESTS2 = `I build quality-of-life tools for friends and family: recipe apps, grocery indexers, book
+converters, and mobile games. I studied how transformers work from first principles, and I work at the
+intersection of infrastructure, automation, and machine intelligence. I care about the commercial side too:
 how technology creates value, not just how it works.`;
 
 interface props {
@@ -43,11 +44,10 @@ interface props {
 
 const Welcome = ({ id }: props) => {
   const currTabID = useSelector((state: RootState) => state.tab.id);
-  const backBtnActive = useSelector(
-    (state: RootState) =>
-      state.tab.tray[state.tab.tray.findIndex((tab) => tab.id === id)]
-        .backBtnActive
-  );
+  const backBtnActive = useSelector((state: RootState) => {
+    const idx = state.tab.tray.findIndex((tab) => tab.id === id);
+    return idx !== -1 ? state.tab.tray[idx].backBtnActive : false;
+  });
 
   const [aboutmeView, setAboutmeView] = useState(false);
 
@@ -75,10 +75,16 @@ const Welcome = ({ id }: props) => {
           <div className={styles.content}>
             <div className={styles.leftpanel}>
               <WelcomeIcon
-                img={butterfly}
+                img={help}
                 text={"About Me"}
                 tooltip="Who am I?"
                 onClick={handleSwitchView}
+              />
+              <WelcomeIcon
+                img={mycomputer}
+                text={"Skills"}
+                tooltip="Technologies I use"
+                onClick={() => handleRunApp(3)}
               />
               <WelcomeIcon
                 img={linkedin}
@@ -105,12 +111,6 @@ const Welcome = ({ id }: props) => {
                 text={"Contact Me"}
                 tooltip="Send me a message"
                 onClick={() => handleRunApp(1)}
-              />
-              <WelcomeIcon
-                img={doc}
-                text={"Skills"}
-                tooltip="Technologies I use"
-                onClick={() => handleRunApp(3)}
               />
             </div>
           </div>

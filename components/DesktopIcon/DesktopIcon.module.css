@@ -24,9 +24,9 @@
   opacity: 0.8;
 }
 
-.iconimage img .iconimage_selected {
-  width: 40px;
-  height: 40px;
+.iconimage_selected img {
+  width: 45px;
+  height: 45px;
 }
 
 .iconlabel {

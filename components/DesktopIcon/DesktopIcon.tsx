@@ -5,30 +5,37 @@ import styles from "./DesktopIcon.module.css";
 import Image from "next/image";
 
 const GRID = 80;
+const ICONS_PER_COLUMN = 16;
+
+const getInitialPosition = (gridIndex: number) => {
+  const col = Math.floor(gridIndex / ICONS_PER_COLUMN);
+  const row = gridIndex % ICONS_PER_COLUMN;
+  return { x: col * GRID, y: row * GRID };
+};
 
 const DesktopIcon = (props: {
   title: string;
   img: StaticImageData;
   appID: number;
+  gridIndex: number;
   doubleClick: () => void;
 }) => {
   const [selected, setSelected] = useState(false);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [pos, setPos] = useState(getInitialPosition(props.gridIndex));
   const ref = useRef<HTMLDivElement>(null);
-  const HighlightIcon = () => {
-    setSelected(!selected);
-  };
-  const handleClickOutside = useCallback((event: { target: any }) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setSelected(false);
+  const wasDragged = useRef(false);
+
+  const handleClick = () => {
+    if (!wasDragged.current) {
+      setSelected(!selected);
     }
-  }, []);
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [handleClickOutside]);
+    wasDragged.current = false;
+  };
+
+  const handleDrag = (_e: any, data: { x: number; y: number }) => {
+    wasDragged.current = true;
+    setPos({ x: data.x, y: data.y });
+  };
 
   const handleStop = (_e: any, data: { x: number; y: number }) => {
     setPos({
@@ -37,17 +44,30 @@ const DesktopIcon = (props: {
     });
   };
 
+  const handleClickOutside = useCallback((event: { target: any }) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setSelected(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [handleClickOutside]);
+
   return (
     <Draggable
       nodeRef={ref}
       bounds="parent"
       position={pos}
+      onDrag={handleDrag}
       onStop={handleStop}
     >
       <div
-        style={{ top: props.appID * 90 - 40 }}
         onDoubleClick={props.doubleClick}
-        onClick={HighlightIcon}
+        onClick={handleClick}
         className={styles.icon}
         ref={ref}
       >

@@ -36,7 +36,6 @@ export const tabtraySlice = createSlice({
       };
       state.tray.push(newTab);
       state.currentFocusedTab = newTab.id;
-      state.id = state.id + 1;
       state.currentZIndex = state.currentZIndex + 1;
       if (!newTab.prompt) {
         state.nextCascade = (state.nextCascade + 1) % 8;
